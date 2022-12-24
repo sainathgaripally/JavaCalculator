@@ -26,8 +26,8 @@ pipeline {
         }
         stage('deploy on cluster') {
             steps {
-                sh 'kubectl apply -f ser.yml'
                 sh 'kubectl apply -f pod.yml'
+                sh 'kubectl apply -f ser.yml'
             }
         }
     }
