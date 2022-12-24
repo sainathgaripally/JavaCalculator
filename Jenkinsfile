@@ -12,7 +12,16 @@ pipeline {
         stage('build image') {
             steps {
                 sh "docker build -t myrepo ."
-                echo 'Image Built Successfully'
+            }
+        }
+        stage('tag image') {
+            steps {
+                sh "docker tag myrepo:latest 307854153830.dkr.ecr.eu-central-1.amazonaws.com/myrepo:latest"
+            }
+        }
+        stage('push to repo') {
+            steps {
+                sh "docker push 307854153830.dkr.ecr.eu-central-1.amazonaws.com/myrepo:latest"
             }
         }
     }
