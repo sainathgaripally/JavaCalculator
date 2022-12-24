@@ -12,6 +12,7 @@ pipeline {
         stage('build image') {
             steps {
                 sh "docker build -t myrepo ."
+                echo 'Image Built Successfully'
             }
         }
     }
