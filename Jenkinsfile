@@ -1,26 +1,12 @@
-pipeline{
-  agent any
-  stages{
-    stage('validate'){
-       steps{
-         sh 'mvn validate'
-       }
+pipeline {
+    agent {
+        label 'node-1'
     }
-    stage('build'){
-       steps{
-         echo 'Project is building'
-       }
+    stages {
+        stage('logging to ecr') {
+            steps {
+                aws ecr get-login-password --region eu-central-1 | docker login --username AWS --password-stdin 307854153830.dkr.ecr.eu-central-1.amazonaws.com
+            }
+        }
     }
-    stage('test'){
-       steps{
-         echo 'Project is testing'
-       }
-    }
-    stage('deploy'){
-       steps{
-         echo 'Project is deploying'
-       }
-    }
-  }
 }
-
