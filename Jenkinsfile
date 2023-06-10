@@ -3,8 +3,8 @@ pipeline {
     label "sonar"
   }
   stages {
-    stage {
-      steps("Testing purpose") {
+    stage('Testing purpose') {
+      steps {
         echo "Hello"
       }
     }
