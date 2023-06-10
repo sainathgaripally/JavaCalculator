@@ -3,9 +3,11 @@ pipeline {
     label "sonar"
   }
   stages {
-    stage('Testing purpose') {
+    stage('Scan the code') {
       steps {
-        echo "Hello"
+        withSonarQubeEnv('sonarqube6.7.7') {
+          sh "mvn sonar:sonar"
+        }
       }
     }
   }
