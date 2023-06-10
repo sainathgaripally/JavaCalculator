@@ -1,5 +1,6 @@
 pipeline {
-  agent {
+  agent 
+  
     label "sonar"
   }
   stages {
