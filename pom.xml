@@ -23,7 +23,15 @@
       </dependency>
    </dependencies>
    <build>
+      
+ 
+      
       <plugins>
+           <plugin>
+               <groupId>org.codehaus.mojo</groupId>
+               <artifactId>sonar-maven-plugin</artifactId>
+               <version>3.0.2</version>
+         </plugin>      
          <plugin>
             <!-- Building an executable jar -->
             <groupId>org.apache.maven.plugins</groupId>
